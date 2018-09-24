@@ -11,7 +11,7 @@ TOKEN = '693266929:AAHv5cYEQmTI0kkClSWNK-CtRr7oqrXp3mI'
 
 
 def start(bot, update):
-    update.message.reply_text('welcome MESSAGE')
+    update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')
 
 
 def help(bot, update):
