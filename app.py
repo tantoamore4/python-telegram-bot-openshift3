@@ -19,7 +19,7 @@ def help(bot, update):
 
 
 def echo(bot, update):
-    update.message.reply_text('You said: ' + update.message.text)
+    update.message.reply_text('You said:  ' + update.message.text)
 
 
 def error(bot, update, error):
