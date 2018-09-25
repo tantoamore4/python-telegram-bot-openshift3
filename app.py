@@ -22,6 +22,12 @@ def echo(bot, update):
     update.message.reply_text('You said:  ' + update.message.text)
 
 
+def dolintenge(bot, update, args):
+    dollars = int(args)
+    tenge = dollars * 356
+    update.message.reply_text(text=tenge)
+
+
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"' % (update, error))
 
