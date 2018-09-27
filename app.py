@@ -17,16 +17,40 @@ def start(bot, update):
 def help(bot, update):
     update.message.reply_text('You can get any help here.')
 
+    keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
+                       [InlineKeyboardButton("Examples"), callback_data = "2"]]
+    keyboard = InlineKeyboardMarkup(keyboardButtons)
 
-def echo(bot, update):
+
+
+def button(bot, update):
+    query = update.callback_query
+    if query.data == "1":
+        text = "You can choose any of the following actions: +, -, /, *")
+    elif query.data == "2":
+        text = "3+4, 44-12, 43/2, 12*9"
+    bot.editMessageText(text = text, chat_id = query.message.chat_id,
+                        message_id = query.message.message_id)
+
+
+def ar(bot, update):
+    num = update.message.text
+    try:
+        ar = eval(num)
+    except (NameError, SyntaxError):
+        ar = "Error"
+    bot.send_message(chat_id=update.message.chat_id, text=ar)
+
+
+"""def echo(bot, update):
     update.message.reply_text('You said:  ' + update.message.text)
+"""
 
-
-def dolintenge(bot, update, args):
+"""def dolintenge(bot, update, args):
     dollars = int(args)
     tenge = dollars * 356
     update.message.reply_text(text=tenge)
-
+"""
 
 def error(bot, update, error):
     logger.warning('Update "%s" caused error "%s"' % (update, error))
@@ -48,9 +72,11 @@ def setup(webhook_url=None):
         dp.add_handler(CommandHandler("start", start))
         dp.add_handler(CommandHandler("help", help))
         dp.add_handler(CommandHandler("dolintenge", dolintenge))
+        dp.add_handler(CallbackQueryHandler(button))
 
         # on noncommand i.e message - echo the message on Telegram
-        dp.add_handler(MessageHandler(Filters.text, echo))
+        """dp.add_handler(MessageHandler(Filters.text, echo))"""
+        dp.add_handler(MessageHandler(Filters.text, ar))
 
         # log all errors
         dp.add_error_handler(error)
