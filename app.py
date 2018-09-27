@@ -11,7 +11,8 @@ TOKEN = '693266929:AAHv5cYEQmTI0kkClSWNK-CtRr7oqrXp3mI'
 
 
 def start(bot, update):
-    update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')
+    """update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')"""
+    bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, I can perform arithmetic operations!")
 
 
 def help(bot, update):
