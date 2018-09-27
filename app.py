@@ -15,11 +15,12 @@ def start(bot, update):
 
 
 def help(bot, update):
-    update.message.reply_text('You can get any help here.')
+    """update.message.reply_text('You can get any help here.')"""
 
     keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
                        [InlineKeyboardButton("Examples", callback_data="2")]]
     keyboard = InlineKeyboardMarkup(keyboardButtons)
+    update.message.reply_text('Please choose:', reply_markup=reply_markup)
 
 
 
