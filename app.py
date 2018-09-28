@@ -16,26 +16,27 @@ def start(bot, update):
 
 
 def help(bot, update):
-    """update.message.reply_text('You can get any help here.')"""
+    update.message.reply_text('You can get any help here.')
 
-    keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
+    """keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
                        [InlineKeyboardButton("Examples", callback_data="2")]]
     keyboard = InlineKeyboardMarkup(keyboardButtons)
     update.message.reply_text('Please choose:', reply_markup=reply_markup)
-
+"""
 
 
 def button(bot, update):
-    query = update.callback_query
+    """query = update.callback_query
     if query.data == "1":
         text = "You can choose any of the following actions: +, -, /, *"
     elif query.data == "2":
         text = "3+4, 44-12, 43/2, 12*9"
     bot.editMessageText(text = text, chat_id = query.message.chat_id,
                         message_id = query.message.message_id)
-
+"""
 
 def ar(bot, update):
+    bot.editMessageText(text=text)
     num = update.message.text
     try:
         ar = eval(num)
