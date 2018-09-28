@@ -36,7 +36,8 @@ def button(bot, update):
 """
 
 def ar(bot, update):
-    bot.editMessageText(text=text)
+    bot.editMessageText(text=text, chat_id = query.message.chat_id,
+                        message_id = query.message.message_id)
     num = update.message.text
     try:
         ar = eval(num)
