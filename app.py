@@ -31,7 +31,7 @@ def button(bot, update):
     if query.data == "1":
         text = "You can choose any of the following actions: +, -, /, *"
     elif query.data == "2":
-        text = "3+4, 44-12, 43/2, 12*9"
+        text = "3+4, 44-12, 43/2, 12*90"
     bot.editMessageText(text = text, chat_id = query.message.chat_id,
                         message_id = query.message.message_id)
 
