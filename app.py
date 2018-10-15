@@ -39,7 +39,7 @@ def button(bot, update):
 def ar(bot, update):
     num = update.message.text
     try:
-        ar = num * 370
+        ar = int(num) * 370
     except (NameError, SyntaxError):
         ar = "Error"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
