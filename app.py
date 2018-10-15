@@ -42,16 +42,16 @@ def ar(bot, update):
     guess_num = True
     num = update.message.text
     try:
-        while guess_num == True:
-            if random_num == int(num):
-                ar = 'You win!'
-                guess_num = False
-            elif random_num > int(num):
-                ar = 'Your number less than mine. Try one more time :)'
-            elif random_num < int(num):
-                ar = 'Your number bigger than mine. Try one more time :)'
-            else:
-                ar = 'Foo'
+        #while guess_num == True:
+        if random_num == int(num):
+            ar = 'You win!'
+            guess_num = False
+        elif random_num > int(num):
+            ar = 'Your number less than mine. Try one more time :)'
+        elif random_num < int(num):
+            ar = 'Your number bigger than mine. Try one more time :)'
+        else:
+            ar = 'Foo'
         #ar = int(num) * 370
     except (NameError, SyntaxError):
         ar = "Error"
