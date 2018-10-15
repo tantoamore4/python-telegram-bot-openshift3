@@ -38,17 +38,17 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    random_num = random.randrange(1,100)
+    random_num = random.randint(1,100)
     guess_num = True
-    num = int(update.message.text)
+    num = update.message.text
     try:
         while guess_num == True:
-            if random_num == num:
+            if random_num == int(num):
                 ar = 'You win!'
                 guess_num = False
-            elif random_num > num:
+            elif random_num > int(num):
                 ar = 'Your number less than mine. Try one more time :)'
-            elif random_num < num:
+            elif random_num < int(num):
                 ar = 'Your number bigger than mine. Try one more time :)'
             else:
                 ar = 'Foo'
