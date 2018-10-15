@@ -1,4 +1,5 @@
 import logging
+import random
 from queue import Queue
 from threading import Thread
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
@@ -37,9 +38,19 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    num = update.message.text
+    random_num = random.randrange(1,100)
+    guess_num = True
+    num = int(update.message.text)
     try:
-        ar = int(num) * 370
+        while guess_num == True:
+            if random_num == num:
+                ar = 'You win!'
+                guess_num = False
+            elif random_num > num:
+                ar = 'Your number less than mine. Try one more time :)'
+            elif random_num < num:
+                ar = 'Your number bigger than mine. Try one more time :)'
+        #ar = int(num) * 370
     except (NameError, SyntaxError):
         ar = "Error"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
