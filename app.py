@@ -55,7 +55,7 @@ def ar(bot, update):
         #ar = int(num) * 370
         except (NameError, SyntaxError):
             ar = "Error"
-    bot.send_message(chat_id=update.message.chat_id, text=ar)
+        bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
 """def echo(bot, update):
