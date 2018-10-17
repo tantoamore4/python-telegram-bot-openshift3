@@ -43,7 +43,7 @@ def ar(bot, update):
     try:
         if random_num == num:
             ar = 'You win!'
-            random_num = 10
+            #random_num = 10
         elif random_num > num:
             ar = 'Your number less than mine. Try one more time :)'
         elif random_num < num:
