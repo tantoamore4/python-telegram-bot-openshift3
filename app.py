@@ -38,22 +38,22 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    random_num = random.randint(1,100)
+    random_num = random.randint(1, 100)
     guess_num = True
-    while guess_num == True:
-        num = int(update.message.text)
-        try:
-            if random_num == num:
-                ar = 'You win!'
-                guess_num = False
-            elif random_num > num:
-                ar = 'Your number less than mine. Try one more time :)'
-            elif random_num < num:
-                ar = 'Your number bigger than mine. Try one more time :)'
-            else:
-                ar = 'Foo'
+    #while guess_num == True:
+    num = int(update.message.text)
+    try:
+        if random_num == num:
+            ar = 'You win!'
+            #guess_num = False
+        elif random_num > num:
+            ar = 'Your number less than mine. Try one more time :)'
+        elif random_num < num:
+            ar = 'Your number bigger than mine. Try one more time :)'
+        else:
+            ar = 'Foo'
         #ar = int(num) * 370
-        except (NameError, SyntaxError):
+    except (NameError, SyntaxError):
             ar = "Error"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
 
