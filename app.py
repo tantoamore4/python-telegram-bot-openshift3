@@ -38,7 +38,8 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    random_num = random.randint(1, 100)
+    #random_num = random.randint(1, 100)
+    random_num = 10
     try:
         num = int(update.message.text)
         if random_num == num:
@@ -50,7 +51,7 @@ def ar(bot, update):
             ar = 'Ваше число больше моего. Попробуйте еще раз :)'
         #ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
-            ar = "Error"
+            ar = "Введите число"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
