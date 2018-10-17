@@ -33,14 +33,14 @@ def button(bot, update):
         text = "You can choose any of the following actions: +, -, /, *"
     elif query.data == "2":
         text = "3+4, 44-12, 43/2, 12*90"
-    bot.editMessageText(text = text, chat_id = query.message.chat_id,
-                        message_id = query.message.message_id)
+    bot.editMessageText(text=text, chat_id=query.message.chat_id,
+                        message_id=query.message.message_id)
 
 
 def ar(bot, update):
     random_num = random.randint(1, 100)
-    num = int(update.message.text)
     try:
+        num = int(update.message.text)
         if random_num == num:
             ar = 'Вы выиграли!'
             #random_num = 10
