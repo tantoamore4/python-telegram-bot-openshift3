@@ -49,7 +49,7 @@ def ar(bot, update):
         elif random_num < num:
             ar = 'Your number bigger than mine. Try one more time :)'
         #ar = int(num) * 370
-    except (NameError, SyntaxError):
+    except (NameError, SyntaxError, ValueError):
             ar = "Error"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
 
