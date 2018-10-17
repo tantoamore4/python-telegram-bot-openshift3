@@ -43,13 +43,11 @@ def ar(bot, update):
     try:
         if random_num == num:
             ar = 'You win!'
-            random_num = random.randint(1, 100)
+            random_num = 10
         elif random_num > num:
             ar = 'Your number less than mine. Try one more time :)'
-        elif random_num < num:
+        else random_num < num:
             ar = 'Your number bigger than mine. Try one more time :)'
-        else:
-            ar = 'Foo'
         #ar = int(num) * 370
     except (NameError, SyntaxError):
             ar = "Error"
