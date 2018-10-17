@@ -42,12 +42,12 @@ def ar(bot, update):
     num = int(update.message.text)
     try:
         if random_num == num:
-            ar = 'You win!'
+            ar = 'Вы выиграли!'
             #random_num = 10
         elif random_num > num:
-            ar = 'Your number less than mine. Try one more time :)'
+            ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
         elif random_num < num:
-            ar = 'Your number bigger than mine. Try one more time :)'
+            ar = 'Ваше число больше моего. Попробуйте еще раз :)'
         #ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
             ar = "Error"
