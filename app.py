@@ -46,7 +46,7 @@ def ar(bot, update):
             random_num = 10
         elif random_num > num:
             ar = 'Your number less than mine. Try one more time :)'
-        else random_num < num:
+        elif random_num < num:
             ar = 'Your number bigger than mine. Try one more time :)'
         #ar = int(num) * 370
     except (NameError, SyntaxError):
