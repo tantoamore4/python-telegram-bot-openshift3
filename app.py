@@ -19,7 +19,7 @@ def start(bot, update):
 
 def help(bot, update):
     """Send a message when the command /help is issued."""
-    #update.message.reply_text('You can get any help here.')
+    # update.message.reply_text('You can get any help here.')
 
     keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
                        [InlineKeyboardButton("Examples", callback_data="2")]]
@@ -38,20 +38,20 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    #random_num = random.randint(1, 100)
+    # random_num = random.randint(1, 100)
     random_num = 10
     try:
         num = int(update.message.text)
         if random_num == num:
             ar = 'Вы выиграли!'
-            #random_num = 10
+            random_num = random.randint(1, 100)
         elif random_num > num:
             ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
         elif random_num < num:
             ar = 'Ваше число больше моего. Попробуйте еще раз :)'
-        #ar = int(num) * 370
+        # ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
-            ar = "Введите число"
+        ar = "Введите целое число"
     bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
@@ -65,9 +65,11 @@ def ar(bot, update):
     update.message.reply_text(text=tenge)
 """
 
+
 def error(bot, update, error):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"' % (update, error))
+
 
 # Write your handlers here
 
@@ -80,11 +82,11 @@ def setup(webhook_url=None):
         update_queue = Queue()
         dp = Dispatcher(bot, update_queue)
     else:
-        updater = Updater(TOKEN)# Create the EventHandler and pass it your bot's token.
+        updater = Updater(TOKEN)  # Create the EventHandler and pass it your bot's token.
         bot = updater.bot
-        dp = updater.dispatcher# Get the dispatcher to register handlers
-        dp.add_handler(CommandHandler("start", start))# on /start command answer in Telegram
-        dp.add_handler(CommandHandler("help", help))# on /help command answer in Telegram
+        dp = updater.dispatcher  # Get the dispatcher to register handlers
+        dp.add_handler(CommandHandler("start", start))  # on /start command answer in Telegram
+        dp.add_handler(CommandHandler("help", help))  # on /help command answer in Telegram
         """dp.add_handler(CommandHandler("dolintenge", dolintenge))"""
         dp.add_handler(CallbackQueryHandler(button))
 
@@ -102,7 +104,7 @@ def setup(webhook_url=None):
         return update_queue, bot
     else:
         bot.set_webhook()  # Delete webhook
-        updater.start_polling()# Start the Bot
+        updater.start_polling()  # Start the Bot
         """Run the bot until you press Ctrl-C or the process receives SIGINT,
         SIGTERM or SIGABRT. This should be used most of the time, since
         start_polling() is non-blocking and will stop the bot gracefully."""
