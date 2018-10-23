@@ -2,7 +2,7 @@ import logging
 import random
 from queue import Queue
 from threading import Thread
-from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ForceReply
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters, CallbackQueryHandler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -14,17 +14,24 @@ TOKEN = '693266929:AAHv5cYEQmTI0kkClSWNK-CtRr7oqrXp3mI'
 def start(bot, update):
     """Send a message when the command /start is issued."""
     """update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')"""
-    bot.send_message(chat_id=update.message.chat_id, text="I'm a bot, I can perform arithmetic operations!")
+    bot.send_message(chat_id=update.message.chat_id,
+                     #text="I'm a bot, I can perform arithmetic operations!",
+                     text='<b>bold</b>, <strong>bold</strong>
+<i>italic</i>, <em>italic</em>
+<a href="http://www.example.com/">inline URL</a>
+<a href="tg://user?id=123456789">inline mention of a user</a>
+<code>inline fixed-width code</code>
+<pre>pre-formatted fixed-width code block</pre>', parse_mode=telegram.ParseMode.HTML)
 
 
 def help(bot, update):
     """Send a message when the command /help is issued."""
     # update.message.reply_text('You can get any help here.')
 
-    keyboardButtons = [[InlineKeyboardButton("Help", callback_data="1")],
-                       [InlineKeyboardButton("Examples", callback_data="2")]]
+    keyboardButtons = [[InlineKeyboardButton("Помощь", callback_data="1")],
+                       [InlineKeyboardButton("Примеры", callback_data="2")]]
     keyboard = InlineKeyboardMarkup(keyboardButtons)
-    update.message.reply_text('Please choose:', reply_markup=keyboard)
+    update.message.reply_text('Сделайте выбор:', reply_markup=keyboard)
 
 
 def button(bot, update):
@@ -38,13 +45,12 @@ def button(bot, update):
 
 
 def ar(bot, update):
-    # random_num = random.randint(1, 100)
-    random_num = 10
+    random_num = random.randint(1, 100)
+    # random_num = 10
     try:
         num = int(update.message.text)
         if random_num == num:
             ar = 'Вы выиграли!'
-            random_num = random.randint(1, 100)
         elif random_num > num:
             ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
         elif random_num < num:
