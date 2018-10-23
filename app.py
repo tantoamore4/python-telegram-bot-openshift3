@@ -16,12 +16,10 @@ def start(bot, update):
     """update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')"""
     bot.send_message(chat_id=update.message.chat_id,
                      #text="I'm a bot, I can perform arithmetic operations!",
-                     text='<b>bold</b>, <strong>bold</strong>
-<i>italic</i>, <em>italic</em>
-<a href="http://www.example.com/">inline URL</a>
-<a href="tg://user?id=123456789">inline mention of a user</a>
-<code>inline fixed-width code</code>
-<pre>pre-formatted fixed-width code block</pre>', parse_mode=telegram.ParseMode.HTML)
+                     #text='<b>bold</b>, <strong>bold</strong><i>italic</i>,<em>italic</em><a href="http://www.example.com/">inline URL</a>
+#<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code>
+#<pre>pre-formatted fixed-width code block</pre>',
+text="I'm a bot, I can perform arithmetic operations!", parse_mode='<b>bold</b> <i>italic</i> <a href="http://google.com">link</a>.')
 
 
 def help(bot, update):
