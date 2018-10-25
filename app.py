@@ -2,7 +2,7 @@ import logging
 import random
 from queue import Queue
 from threading import Thread
-from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ForceReply
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, ParseMode
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters, CallbackQueryHandler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
