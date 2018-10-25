@@ -41,7 +41,7 @@ def button(bot, update):
 
 def ar(bot, update):
     random_num = random.randint(1, 100)
-    # random_num = 10
+    num_true = True
     try:
         num = int(update.message.text)
         while num_true == True:
