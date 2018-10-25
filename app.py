@@ -15,11 +15,7 @@ def start(bot, update):
     """Send a message when the command /start is issued."""
     """update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')"""
     bot.send_message(chat_id=update.message.chat_id,
-                     text='<b>bold</b>, <strong>bold</strong><i>italic</i>,
-                          <em>italic</em><a href="http://www.example.com/">inline URL</a>
-<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code>
-<pre>pre-formatted fixed-width code block</pre>',
-                     parse_mode=ParseMode.HTML)
+                     text='<b>bold</b>, <strong>bold</strong>, <i>italic</i><em>italic</em>,<a href="http://www.example.com/">inline URL</a>,<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code><pre>pre-formatted fixed-width code block</pre>', parse_mode=ParseMode.HTML)
                      #text="I'm a bot, I can perform arithmetic operations!",
                      #text='<b>bold</b>, <strong>bold</strong><i>italic</i>,<em>italic</em><a href="http://www.example.com/">inline URL</a>
 #<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code>
