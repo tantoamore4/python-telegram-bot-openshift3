@@ -15,11 +15,7 @@ def start(bot, update):
     """Send a message when the command /start is issued."""
     """update.message.reply_text('Welcome to the Test Bot! I will reply you what you will write me.')"""
     bot.send_message(chat_id=update.message.chat_id,
-                     text='<b>bold</b>, <strong>bold</strong>, <i>italic</i><em>italic</em>,<a href="http://www.example.com/">inline URL</a>,<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code><pre>pre-formatted fixed-width code block</pre>', parse_mode=ParseMode.HTML)
-                     #text="I'm a bot, I can perform arithmetic operations!",
-                     #text='<b>bold</b>, <strong>bold</strong><i>italic</i>,<em>italic</em><a href="http://www.example.com/">inline URL</a>
-#<a href="tg://user?id=123456789">inline mention of a user</a><code>inline fixed-width code</code>
-#<pre>pre-formatted fixed-width code block</pre>',)
+                     text='<b>KAZGUU site</b>,<a href="http://kazguu.kz/ru/">KAZGUU</a>', parse_mode=ParseMode.HTML)
 
 
 def help(bot, update):
@@ -48,15 +44,18 @@ def ar(bot, update):
     # random_num = 10
     try:
         num = int(update.message.text)
-        if random_num == num:
-            ar = 'Вы выиграли!'
-        elif random_num > num:
-            ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
-        elif random_num < num:
-            ar = 'Ваше число больше моего. Попробуйте еще раз :)'
+        while num_true == True:
+            if random_num == num:
+                ar = 'Вы выиграли!'
+                num_true = False
+            elif random_num > num:
+                ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
+            elif random_num < num:
+                ar = 'Ваше число больше моего. Попробуйте еще раз :)'
         # ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
         ar = "Введите целое число"
+    num_true = True
     bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
