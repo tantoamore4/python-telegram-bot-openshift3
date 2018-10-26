@@ -44,15 +44,16 @@ def ar(bot, update):
     num_true = True
     try:
         num = int(update.message.text)
-        while num_true == True:
+        for i in range(0, random_num):
             if random_num == num:
                 ar = 'Вы выиграли!'
-                num_true = False
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
             elif random_num > num:
                 ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
             elif random_num < num:
                 ar = 'Ваше число больше моего. Попробуйте еще раз :)'
-        bot.send_message(chat_id=update.message.chat_id, text=ar)
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
         # ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
         ar = "Введите целое число"
