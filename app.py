@@ -36,7 +36,7 @@ def button(bot, update):
     elif query.data == "2":
         text = "3+4, 44-12, 43/2, 12*90"
     bot.editMessageText(text=text, chat_id=query.message.chat_id,
-                        message_id=query.message.message_id)
+                        message_id=query.message.message_id, reply_markup=ForceReply())
 
 
 def ar(bot, update):
@@ -44,21 +44,17 @@ def ar(bot, update):
     num_true = True
     try:
         num = int(update.message.text)
-        for i in range(0, random_num):
-            if random_num == num:
-                ar = 'Вы выиграли!'
-                bot.send_message(chat_id=update.message.chat_id, text=ar)
-            elif random_num > num:
-                ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
-                bot.send_message(chat_id=update.message.chat_id, text=ar)
-            elif random_num < num:
-                ar = 'Ваше число больше моего. Попробуйте еще раз :)'
-                bot.send_message(chat_id=update.message.chat_id, text=ar)
+        if random_num == num:
+            ar = 'Вы выиграли!'
+        elif random_num > num:
+            ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
+        elif random_num < num:
+            ar = 'Ваше число больше моего. Попробуйте еще раз :)'
         # ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
         ar = "Введите целое число"
     num_true = True
-    #bot.send_message(chat_id=update.message.chat_id, text=ar)
+    bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
 """def echo(bot, update):
