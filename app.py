@@ -50,8 +50,10 @@ def ar(bot, update):
                 num_true = False
             elif random_num > num:
                 ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
             elif random_num < num:
                 ar = 'Ваше число больше моего. Попробуйте еще раз :)'
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
         # ar = int(num) * 370
     except (NameError, SyntaxError, ValueError):
         ar = "Введите целое число"
