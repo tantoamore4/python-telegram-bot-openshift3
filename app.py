@@ -48,6 +48,7 @@ def ar(bot, update):
             if random_num == num:
                 ar = 'Вы выиграли!'
                 num_true = False
+                bot.send_message(chat_id=update.message.chat_id, text=ar)
             elif random_num > num:
                 ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
                 bot.send_message(chat_id=update.message.chat_id, text=ar)
@@ -58,7 +59,7 @@ def ar(bot, update):
     except (NameError, SyntaxError, ValueError):
         ar = "Введите целое число"
     num_true = True
-    bot.send_message(chat_id=update.message.chat_id, text=ar)
+    #bot.send_message(chat_id=update.message.chat_id, text=ar)
 
 
 """def echo(bot, update):
