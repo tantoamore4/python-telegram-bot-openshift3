@@ -36,7 +36,7 @@ def button(bot, update):
     elif query.data == "2":
         text = "3+4, 44-12, 43/2, 12*90"
     bot.editMessageText(text=text, chat_id=query.message.chat_id,
-                        message_id=query.message.message_id, reply_markup=ForceReply())
+                        message_id=query.message.message_id, reply_markup=ForceReply(True))
 
 
 def ar(bot, update):
