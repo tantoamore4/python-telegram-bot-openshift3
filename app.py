@@ -2,7 +2,7 @@ import logging
 import random
 from queue import Queue
 from threading import Thread
-from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ForceReply, ParseMode
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
 from telegram.ext import Dispatcher, CommandHandler, MessageHandler, Updater, Filters, CallbackQueryHandler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -38,24 +38,31 @@ def button(bot, update):
     bot.editMessageText(text=text, chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
-    random_num = random.randint(1, 100)
 
-def ar(bot, update):
-    global random_num
-    num_true = True
-    try:
-        num = int(update.message.text)
-        if random_num == num:
-            ar = 'Вы выиграли!'
-        elif random_num > num:
-            ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
-        elif random_num < num:
-            ar = 'Ваше число больше моего. Попробуйте еще раз :)'
-        # ar = int(num) * 370
-    except (NameError, SyntaxError, ValueError):
-        ar = "Введите целое число"
-    num_true = True
-    bot.send_message(chat_id=update.message.chat_id, text=ar)
+class arr:
+
+    def __init__(self, num, random_num=random.randint(1, 100)):
+        self.random_num = random_num
+        self.num = num
+
+    def checking(self, bot, update):
+        try:
+            if self.random_num == self.num:
+                ar = 'Вы выиграли!'
+            elif self.random_num > self.num:
+                ar = 'Ваше число меньше моего. Попробуйте еще раз :)'
+            elif self.random_num < self.num:
+                ar = 'Ваше число больше моего. Попробуйте еще раз :)'
+            # ar = int(num) * 370
+        except (NameError, SyntaxError, ValueError):
+            ar = "Введите целое число"
+        bot.send_message(chat_id=update.message.chat_id, text=ar)
+
+
+def guessing(bot, update):
+    input_num = int(update.message.text)
+    object_num = arr()
+    object_num.checking(input_num)
 
 
 """def echo(bot, update):
@@ -95,7 +102,7 @@ def setup(webhook_url=None):
 
         # on noncommand i.e message - echo the message on Telegram
         """dp.add_handler(MessageHandler(Filters.text, echo))"""
-        dp.add_handler(MessageHandler(Filters.text, ar))
+        dp.add_handler(MessageHandler(Filters.text, guessing))
 
         # log all errors
         dp.add_error_handler(error)
